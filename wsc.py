@@ -160,6 +160,7 @@ class KboDataset:
                 if game.select_one('.inning'):
                     if game.select_one('.inning').text.strip() == "Final":
                         is_finished = "true"
+                        continue
                         
                 team1 = TEAMS.get(team1, team1)
                 team2 = TEAMS.get(team2, team2)
