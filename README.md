@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# ⚾ KBO LIVE RANK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**KBO LIVE RANK**는 KBO 리그 팀들의 실시간 경기 결과를 반영하여 예상 승패를 기반으로 순위를 자동 계산해 보여주는 웹 애플리케이션입니다.  
+**Python WebSocket**과 **React + React Bootstrap**을 사용하여 **실시간 순위 변동**을 시각적으로 확인할 수 있습니다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 주요 기능
 
-### `npm start`
+- ⚡ 실시간 경기 스코어를 반영해 현재 이기고 있는 팀은 1승, 지고 있는 팀은 1패로 가정하여 **예상 순위 자동 계산**
+- 🔁 이전 순위와 비교한 **순위 변동 (상승/하락) 시각화**
+- 🔗 Python WebSocket 서버와 React 클라이언트 간 **실시간 데이터 연동**
+- 📱 React Bootstrap 기반 **직관적이고 반응형 UI**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 프로젝트 구조
 
-### `npm test`
+```bash
+kbosunwe/
+├── node_modules/             # React 의존성 모듈
+├── public/                   # 정적 파일
+├── src/                      # 프론트엔드 소스
+│   ├── App.js                # 메인 React 컴포넌트
+│   ├── App.css               # 스타일
+│   ├── index.js              # 앱 진입점
+│   ├── index.css             # 기본 CSS
+│   ├── logo.svg              # 로고
+│   ├── reportWebVitals.js    # 성능 측정
+│   ├── App.test.js           # 테스트 코드
+│   ├── setupTests.js         # 테스트 환경 설정
+├── wsc.py                    # WebSocket 서버 (Python)
+├── asdf.html                 # 테스트/임시 HTML 파일
+├── package.json              # 프로젝트 정보 및 스크립트
+├── package-lock.json         # 의존성 고정
+└── README.md                 # 프로젝트 설명 파일
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧰 사용 기술 스택
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| 구분        | 기술                         |
+|-------------|------------------------------|
+| 프론트엔드  | React, React Bootstrap       |
+| 백엔드      | Python, WebSocket            |
+| 통신 방식   | WebSocket (양방향 통신)      |
+| 스타일링    | CSS, Bootstrap               |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 설치 및 실행
 
-### `npm run eject`
+### 1. 백엔드 서버 실행 (WebSocket)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Python 패키지 설치 (필요 시)
+pip install websockets
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# WebSocket 서버 실행
+python wsc.py
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. 프론트엔드 실행 (React)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# 의존성 설치
+npm install
 
-## Learn More
+# React 개발 서버 실행
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💡 개발 의도
 
-### Code Splitting
+실제 데이터를 바탕으로 **프론트-백 실시간 연동**을 직접 구현하며 학습 및 실습 목적으로 제작되었습니다.  
+직접 WebSocket 서버를 구성하고 React와 연결하여, 프론트에서 순위를 계산하고 UI로 보여주는 과정을 체계적으로 경험할 수 있습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🔧 TODO / 향후 개선 사항
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [ ] 팀별 로고 및 선수 상세 정보 연동
+- [ ] 경기 상세 페이지 연결
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📄 라이선스
 
-### Advanced Configuration
+MIT License  
+© 2025 **sungjujjang**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### README.md 작성자 : CHATGPT
